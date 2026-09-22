@@ -2,7 +2,7 @@
 
 This repository is where I track what I'm learning throughout the Web Technology course, along with the hands-on projects built for each topic.
 
-## 📚 Topics Covered
+##  Topics Covered
 
 ### 1. Spring Boot
 - Setting up a Spring Boot project with Maven

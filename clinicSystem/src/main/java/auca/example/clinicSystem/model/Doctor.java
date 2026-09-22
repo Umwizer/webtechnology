@@ -1,4 +1,3 @@
-
 package auca.example.clinicSystem.model;
 
 import java.util.*;
@@ -10,6 +9,7 @@ public class Doctor {
     private UUID id;
     private String name;
     private String phoneNumber;
+
     public Doctor(UUID id, String name, String phoneNumber) {
         this.id = id;
         this.name = name;

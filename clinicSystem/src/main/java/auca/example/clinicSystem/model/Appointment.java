@@ -14,8 +14,9 @@ public class Appointment {
 
     @ManyToOne
     @JoinColumn(name = "doctor_id")
-    @JoinColumn(name ="patient_id")
     private Doctor doctor;
+    @ManyToOne
+    @JoinColumn(name ="patient_id")
     private Patient patient;
     public Appointment() {
     }

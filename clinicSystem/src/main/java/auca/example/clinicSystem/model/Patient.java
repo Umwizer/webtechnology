@@ -9,10 +9,15 @@ public class Patient {
     private UUID id;
     private String name;
     private String phoneNumber;
-    public Patient(UUID id, String name, String phoneNumber) {
+    @OneToMany(mappedBy = "patient" )
+    private List<Appointment> appointments;
+    public Patient() {
+    }
+    public Patient(UUID id, String name, String phoneNumber, List<Appointment> appointments) {
         this.id = id;
         this.name = name;
         this.phoneNumber = phoneNumber;
+        this.appointments = appointments;
     }
     public UUID getId() {
         return id;
@@ -32,5 +37,11 @@ public class Patient {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+    public List<Appointment> getAppointments() {
+        return appointments;
+    }
+    public void setAppointments(List<Appointment> appointments) {
+        this.appointments = appointments;
+    }
     
-}
+   }

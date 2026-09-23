@@ -1,22 +1,29 @@
 package auca.example.clinicSystem.model;
+
 import java.util.*;
 import jakarta.persistence.*;
+
 @Entity
 public class Office {
+
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-    private String roomNumber;
+
+    private String name;
+    private String officeNumber;
     private String floor;
-    @OneToOne(mappedBy ="office")
+
+    @OneToOne(mappedBy = "office")
     private Doctor doctor;
-    
+
     public Office() {
     }
 
-    public Office(UUID id, String roomNumber, String floor, Doctor doctor) {
+    public Office(UUID id, String name, String officeNumber, String floor, Doctor doctor) {
         this.id = id;
-        this.roomNumber = roomNumber;
+        this.name = name;
+        this.officeNumber = officeNumber;
         this.floor = floor;
         this.doctor = doctor;
     }
@@ -29,12 +36,20 @@ public class Office {
         this.id = id;
     }
 
-    public String getRoomNumber() {
-        return roomNumber;
+    public String getName() {
+        return name;
     }
 
-    public void setRoomNumber(String roomNumber) {
-        this.roomNumber = roomNumber;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getOfficeNumber() {
+        return officeNumber;
+    }
+
+    public void setOfficeNumber(String officeNumber) {
+        this.officeNumber = officeNumber;
     }
 
     public String getFloor() {
@@ -52,5 +67,4 @@ public class Office {
     public void setDoctor(Doctor doctor) {
         this.doctor = doctor;
     }
-    
 }

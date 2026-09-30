@@ -1,12 +1,17 @@
-// package auca.example.clinicSystem.Repository;
+package auca.example.clinicSystem.Repository;
 
-// import java.util.*;
-// import auca.example.clinicSystem.model.Patient;
-// import org.springframework.data.jpa.repository.JpaRepository;
-// import org.springframework.stereotype.Repository;
+import java.util.List;
+import java.util.UUID;
 
-// @Repository
-// public interface PatientRepository extends JpaRepository<Patient,UUID> {
-//     Patient findByNamePatient(String name );
-//     List<Patient> findByphoneNumber(String phoneNumber);
-// }
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import auca.example.clinicSystem.model.Patient;
+
+@Repository
+public interface PatientRepository extends JpaRepository<Patient, UUID> {
+
+    Patient findByPhoneNumber(String phoneNumber);
+    Patient findByEmail(String email);
+    List<Patient> findByName(String name);
+}

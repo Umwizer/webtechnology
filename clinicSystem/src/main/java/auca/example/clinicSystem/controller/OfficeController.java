@@ -3,16 +3,7 @@
     import org.springframework.beans.factory.annotation.Autowired;
     import org.springframework.http.HttpStatus;
     import org.springframework.http.ResponseEntity;
-    import org.springframework.web.bind.annotation.DeleteMapping;
-    import org.springframework.web.bind.annotation.GetMapping;
-    import org.springframework.web.bind.annotation.PathVariable;
-    import org.springframework.web.bind.annotation.PostMapping;
-    import org.springframework.web.bind.annotation.PutMapping;
-    import org.springframework.web.bind.annotation.RequestBody;
-    import org.springframework.web.bind.annotation.RequestMapping;
-    import org.springframework.web.bind.annotation.RequestParam;
-    import org.springframework.web.bind.annotation.RestController;
-
+    import org.springframework.web.bind.annotation.*;
     import auca.example.clinicSystem.service.OfficeService;
     import auca.example.clinicSystem.model.Office;
     import java.util.*;
@@ -36,17 +27,13 @@
         public ResponseEntity<List<Office>>getAllOffices(){
             return new ResponseEntity<>(officeServ.getAllOffices(),HttpStatus.OK);
         }
-        @GetMapping(value ="/{id}")
+        @GetMapping(value ="/all/{id}")
         public ResponseEntity<?> getOfficeById(@PathVariable UUID id){
             Optional<Office> office = officeServ.getOfficeById(id);
             if (office.isPresent()) {
                 return new ResponseEntity<>(office.get(),HttpStatus.OK);
             }
             return new ResponseEntity<>("Office not Found",HttpStatus.NOT_FOUND);
-        }
-        @GetMapping(value ="/search")
-        public ResponseEntity<?>getOfficesByName(@RequestParam String name){
-            return new ResponseEntity<>(officeServ.getOfficesByName(name),HttpStatus.OK);
         }
         @PutMapping(value = "/update/{id}")
         public ResponseEntity<?>updateOffice(@PathVariable UUID id,@RequestBody Office office){

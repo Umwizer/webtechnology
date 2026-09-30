@@ -23,9 +23,6 @@ public class OfficeService {
    public Optional<Office> getOfficeById(UUID id){
     return officeRepo.findById(id);
    }
-   public List<Office> getOfficesByName(String name){
-    return officeRepo.findByName(name);
-   }
    public String updateOffice(UUID id,Office updated){
     Optional <Office> existing = officeRepo.findById(id);
     if(existing.isEmpty()){

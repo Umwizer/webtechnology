@@ -1,5 +1,6 @@
 package auca.example.clinicSystem.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.*;
 import jakarta.persistence.*;
 @Entity
@@ -9,11 +10,13 @@ public class Doctor {
     private UUID id;
     private String name;
     private String phoneNumber;
-
+    
+    
     @OneToOne 
     @JoinColumn(name="office_id",unique=true)
     private Office office;
-
+    
+    @JsonIgnore
     @ManyToMany
     @JoinTable(
         name = "doctor_specialization",
@@ -21,10 +24,12 @@ public class Doctor {
         inverseJoinColumns = @JoinColumn(name = "specialization_id")
     )
     private List<Specialization> specializations;
-    
+    @JsonIgnore
     @OneToMany(mappedBy = "doctor")
     private List<Appointment> appointments;
+    public Doctor(){
 
+    }
     public Doctor(UUID id, String name, String phoneNumber, Office office, List<Specialization> specializations,
             List<Appointment> appointments) {
         this.id = id;

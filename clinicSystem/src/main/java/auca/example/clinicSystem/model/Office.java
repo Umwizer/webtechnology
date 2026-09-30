@@ -1,6 +1,9 @@
 package auca.example.clinicSystem.model;
 
 import java.util.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -13,7 +16,8 @@ public class Office {
     private String name;
     private String officeNumber;
     private String floor;
-
+    
+    @JsonIgnore
     @OneToOne(mappedBy = "office")
     private Doctor doctor;
 

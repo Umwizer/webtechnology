@@ -14,19 +14,21 @@ public class Patient {
     private String name;
     private String email;
     private String phoneNumber;
+    private String ssNumber;
     private String gender;
     @JsonIgnore
     @OneToMany(mappedBy = "patient" )
     private List<Appointment> appointments;
     public Patient() {
     }
-    public Patient(UUID id, String name, String email, String phoneNumber, String gender,
+    public Patient(UUID id, String name, String email, String phoneNumber, String ssNumber,String gender, 
             List<Appointment> appointments) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.gender = gender;
+        this.ssNumber = ssNumber;
         this.appointments = appointments;
     }
     public UUID getId() {
@@ -37,6 +39,13 @@ public class Patient {
     }
     public String getName() {
         return name;
+    }
+    
+    public String getSsNumber() {
+        return ssNumber;
+    }
+    public void setSsNumber(String ssNumber) {
+        this.ssNumber = ssNumber;
     }
     public void setName(String name) {
         this.name = name;

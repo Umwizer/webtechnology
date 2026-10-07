@@ -8,6 +8,5 @@ import org.springframework.stereotype.Repository;
 import auca.example.clinicSystem.model.Specialization;
 @Repository
 public interface SpecializationRepository extends JpaRepository<Specialization, UUID> {
-  
-   
+  List<Specialization> findByCategory(String category);
 }

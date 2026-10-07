@@ -20,7 +20,7 @@ public class PatientService{
         return "Email already exists";
     }
     patientRepo.save(patient);
-    return "Patient saved successfully";
+    return "Patient Saved Successfully";
 }
     public List<Patient> getAllPatients(){
         return patientRepo.findAll();
@@ -34,9 +34,11 @@ public class PatientService{
             return "Patient not Found";
         }
         Patient patient = existing.get();
-        patient.setName(updated.getName());
+        patient.setLastName(updated.getLastName());
+        patient.setFirstName(updated.getFirstName());
         patient.setEmail(updated.getEmail());
         patient.setPhoneNumber(updated.getPhoneNumber());
+        patient.setSsNumber(updated.getSsNumber());
         patient.setGender(updated.getGender());
         patientRepo.save(patient);
         return "Patient Updated Successfully";

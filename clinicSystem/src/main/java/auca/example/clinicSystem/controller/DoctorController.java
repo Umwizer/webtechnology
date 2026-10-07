@@ -10,7 +10,7 @@ import auca.example.clinicSystem.model.Doctor;
 import auca.example.clinicSystem.service.DoctorService;
 
 @RestController
-@RequestMapping(value = "/api/doctor")
+@RequestMapping(value = "/api/doctors")
 public class DoctorController {
 
     @Autowired

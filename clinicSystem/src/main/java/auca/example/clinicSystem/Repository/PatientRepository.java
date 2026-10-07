@@ -15,5 +15,5 @@ public interface PatientRepository extends JpaRepository<Patient, UUID> {
     Optional<Patient> findByssNumber(String ssNumber);
     Patient findByPhoneNumber(String phoneNumber);
     Patient findByEmail(String email);
-    List<Patient> findByName(String name);
+    List<Patient> findByLastName(String lastName);
 }

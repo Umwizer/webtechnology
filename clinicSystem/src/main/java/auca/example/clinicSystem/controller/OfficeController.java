@@ -8,7 +8,7 @@
     import auca.example.clinicSystem.model.Office;
     import java.util.*;
     @RestController
-    @RequestMapping(value = "/api/office")
+    @RequestMapping(value = "/api/offices")
     public class OfficeController {
 
         @Autowired

@@ -50,8 +50,8 @@ public class DoctorService {
     public Optional<Doctor> getDoctorById(UUID id) {
         return doctorRepo.findById(id);
     }
-    public List<Doctor> getDoctorsByName(String name) {
-        return doctorRepo.findByName(name);
+    public List<Doctor> getDoctorsByName(String lastName) {
+        return doctorRepo.findByLastName(lastName);
     }
 
     public String updateDoctor(UUID id, Doctor updated) {
@@ -60,7 +60,8 @@ public class DoctorService {
             return NOT_FOUND;
         }
         Doctor doctor = existing.get();
-        doctor.setName(updated.getName());
+        doctor.setFirstName(updated.getFirstName());
+        doctor.setLastName(updated.getLastName());
         doctor.setPhoneNumber(updated.getPhoneNumber());
 
         if (updated.getOffice() != null && updated.getOffice().getId() != null) {

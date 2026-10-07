@@ -11,7 +11,8 @@ public class Patient {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-    private String name;
+    private String lastName;
+    private String firstName;
     private String email;
     private String phoneNumber;
     private String ssNumber;
@@ -21,14 +22,15 @@ public class Patient {
     private List<Appointment> appointments;
     public Patient() {
     }
-    public Patient(UUID id, String name, String email, String phoneNumber, String ssNumber,String gender, 
-            List<Appointment> appointments) {
+    public Patient(UUID id, String lastName, String firstName, String email, String phoneNumber, String ssNumber,
+            String gender, List<Appointment> appointments) {
         this.id = id;
-        this.name = name;
+        this.lastName = lastName;
+        this.firstName = firstName;
         this.email = email;
         this.phoneNumber = phoneNumber;
-        this.gender = gender;
         this.ssNumber = ssNumber;
+        this.gender = gender;
         this.appointments = appointments;
     }
     public UUID getId() {
@@ -37,18 +39,17 @@ public class Patient {
     public void setId(UUID id) {
         this.id = id;
     }
-    public String getName() {
-        return name;
+    public String getLastName() {
+        return lastName;
     }
-    
-    public String getSsNumber() {
-        return ssNumber;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
-    public void setSsNumber(String ssNumber) {
-        this.ssNumber = ssNumber;
+    public String getFirstName() {
+        return firstName;
     }
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
     public String getEmail() {
         return email;
@@ -62,6 +63,12 @@ public class Patient {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+    public String getSsNumber() {
+        return ssNumber;
+    }
+    public void setSsNumber(String ssNumber) {
+        this.ssNumber = ssNumber;
+    }
     public String getGender() {
         return gender;
     }
@@ -74,6 +81,5 @@ public class Patient {
     public void setAppointments(List<Appointment> appointments) {
         this.appointments = appointments;
     }
-   
     
-   }
+}

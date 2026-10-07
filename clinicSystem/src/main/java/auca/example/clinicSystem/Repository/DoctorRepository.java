@@ -13,5 +13,5 @@ public interface DoctorRepository extends JpaRepository<Doctor, UUID> {
 
     Doctor findByPhoneNumber(String phoneNumber);
     Doctor findByOfficeId(UUID officeId);
-    List<Doctor> findByName(String name);
+    List<Doctor> findByLastName(String lastName);
 }
